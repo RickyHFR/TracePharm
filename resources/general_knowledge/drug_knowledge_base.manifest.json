@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "entity_info_column": "all_entity_info_json",
+  "exclude_contradictions": false,
+  "embedding_model": "text-embedding-3-large",
+  "embedding_dimensions": 3072,
+  "source_files": [
+    {
+      "path": "resources/general_knowledge/general_medical_knowledge.csv",
+      "filename": "general_medical_knowledge.csv",
+      "sha256": "630505eab976fdc8cbf144431b9a6d2054e3037481af666ea6054031865efa33"
+    }
+  ]
+}

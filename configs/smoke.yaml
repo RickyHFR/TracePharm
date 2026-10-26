@@ -1,0 +1,63 @@
+# One synthetic case, one DeepSeek key. This is not the paper's experiment profile.
+api_key: ""
+api_key_env: DEEPSEEK_API_KEY
+base_url: https://api.deepseek.com
+model: deepseek-flash
+thinking_enabled: false
+reasoning_effort: ""
+temperature: 0
+request_timeout_seconds: 60
+max_retries: 0
+max_api_requests: 16
+agent_config_overrides:
+  enable_planner: true
+  enable_tools: true
+  strict_tool_registry: true
+  enable_reflection: true
+  enable_rec_debate: true
+  structured_json_thinking_enabled: false
+  planner_max_tokens: 3600
+  planner_max_retries: 1
+  planner_retry_max_tokens: 5000
+  screening_max_tokens: 1800
+  screening_max_retries: 1
+  screening_require_evidence: true
+  main_max_tokens: 900
+  reflection_max_tokens: 1800
+  final_max_tokens: 600
+  debate_max_rounds: 1
+  debate_max_retrievals: 1
+  debate_max_tokens: 1200
+  debate_max_retries: 1
+  max_rounds: 3
+  max_tool_turns: 3
+  max_tools_per_turn: 1
+  max_total_tool_calls: 3
+  max_online_tool_calls: 2
+  max_local_tool_calls: 2
+  max_llm_calls: 14
+  max_total_tokens: 120000
+  deadline_seconds: 300
+  max_model_visible_tool_result_chars: 8000
+  reflection_max_evidence_records: 8
+  prefetch_local_before_main: true
+  prefetch_local_max_queries: 1
+  prefetch_local_max_evidence: 3
+  prefetch_local_bm25_k: 4
+  reflection_retry_max_evidence: 3
+  reflection_retry_enabled: true
+  tool_deepseek_chat_max_workers: 1
+  use_primekg: false
+  isolate_get_all_info_by_drug_process: false
+  compact_short_final_answer: false
+  dump_prompts: false
+  enabled_tools:
+    - search_local
+    - get_all_info_by_drug
+    - web_search
+    - web_visit
+    - get_trial_info
+    - get_drug_approvals
+    - get_drug_patents
+    - get_drug_exlusivities
+  disabled_tools: []

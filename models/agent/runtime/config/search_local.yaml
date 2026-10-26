@@ -1,0 +1,60 @@
+# Small demonstration corpus: 16 source-linked records, without benchmark cases.
+source_csv_paths:
+  - resources/general_knowledge/general_medical_knowledge.csv
+overlay_csv_paths: []
+overlay_entity_info_column: key_entity_info_json
+overlay_use_choices: true
+overlay_min_overlap_tokens: 2
+overlay_min_score: 0.22
+overlay_max_evidence: 3
+entity_info_column: all_entity_info_json
+database_path: resources/general_knowledge/drug_knowledge_base.sqlite
+faiss_index_path: resources/general_knowledge/drug_knowledge_base.faiss
+query_cache_path: resources/general_knowledge/drug_knowledge_base_query_cache.sqlite
+embedding_config_path: models/text_embedding_3_large/config.yaml
+# Evaluation/runtime consumers must never mutate the frozen corpus implicitly.
+# Rebuilding is an explicit offline workflow with its own build configuration.
+read_only_runtime: true
+allow_legacy_artifacts: false
+exclude_contradictions: false
+multiquery_max_queries: 2
+multiquery_rerank_total_candidate_k: 12
+anchor_choice_union_enabled: false
+dense_branch_k: 8
+bm25_branch_k: 8
+hybrid_weights:
+  dense: 0.5
+  bm25: 0.5
+dense_enabled: true
+dense_failure_fallback_to_bm25: true
+benchmark_affinity_enabled: false
+benchmark_affinity_same_benchmark_bonus: 0.08
+benchmark_affinity_support_atom_bonus: 0.0
+benchmark_affinity_medxpert_support_atom_bonus: 0.0
+benchmark_affinity_public_private_support_atom_bonus: 0.0
+benchmark_affinity_cross_support_atom_penalty: 0.35
+rerank_enabled: true
+rerank_model_config_path: models/agent/config.yaml
+rerank_cache_enabled: false
+rerank_cache_path: .runs/cache/drug_knowledge_base_rerank_cache.sqlite
+rerank_cache_fallback_scores: false
+rerank_fallback_on_error: true
+rerank_candidate_k: 8
+rerank_batch_size: 8
+rerank_keep_scores:
+  - 1
+  - 2
+rerank_always_keep_hybrid_top_k: 3
+support_atom_max_rerank_score: 1
+# Atoms must match several concrete visible anchors before they are shown to
+# the model in non-formal experiments.
+support_atom_min_visible_overlap_tokens: 3
+support_atom_min_visible_long_token_length: 14
+support_atom_public_private_min_visible_overlap_tokens: 3
+support_atom_public_private_min_visible_long_token_length: 14
+support_atom_medxpert_min_visible_overlap_tokens: 2
+support_atom_medxpert_min_visible_long_token_length: 8
+weak_local_hit_min_visible_overlap_tokens: 2
+weak_local_hit_min_visible_long_token_length: 8
+rerank_max_retries: 1
+rerank_max_workers: 30

@@ -1,0 +1,4 @@
+api_key: ""
+api_key_env: "DEEPSEEK_API_KEY"
+base_url: https://api.deepseek.com
+model: deepseek-reasoner

@@ -1,0 +1,56 @@
+# unified agent runtime configuration
+max_rounds: 8
+max_tools_per_turn: 2
+planner_max_tools_per_turn: 0
+enable_tools: true
+strict_tool_registry: true
+enable_planner: true
+enable_visible_planner_fallback: true
+enable_goal_guidance: true
+max_tool_turns: 3
+max_total_tool_calls: 5
+max_online_tool_calls: 4
+max_local_tool_calls: 2
+max_llm_calls: 24
+max_total_tokens: 120000
+deadline_seconds: 300
+retain_tool_pairs_k: -1
+tool_deepseek_chat_max_workers: 4
+
+enable_reflection: true
+enable_rec_debate: true
+debate_max_rounds: 2
+debate_max_retrievals: 2
+debate_max_tokens: 1800
+debate_max_retries: 1
+reflection_max_passes: 1
+reflection_retry_confidence_threshold: 0.58
+reflection_generic_mcq_evidence_gap_local_retry: true
+reflection_generic_clinical_context_local_retry: true
+reflection_prefer_unused_local_retry: true
+planner_max_tokens: 1800
+screening_max_tokens: 2400
+screening_max_retries: 1
+main_max_tokens: 5000
+reflection_max_tokens: 2400
+final_max_tokens: 3000
+enforce_goal_propagation: true
+
+retrieval_max_rounds: 5
+compression_chunk_tokens: -1
+max_model_visible_tool_result_chars: 12000
+qwen_tokenizer_name: Qwen/Qwen2.5-7B-Instruct
+use_primekg: false
+dump_prompts: false
+prompt_dump_dir: output/prompt_dumps/agent_runtime
+serper_api_key: ""
+serper_api_key_env: "SERPER_API_KEY"
+enabled_tools:
+  - web_search
+  - web_visit
+  - get_all_info_by_drug
+  - get_drug_patents
+  - get_drug_exlusivities
+  - get_drug_approvals
+  - get_trial_info
+  - search_local

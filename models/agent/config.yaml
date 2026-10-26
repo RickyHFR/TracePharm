@@ -1,0 +1,55 @@
+api_key_env: "DEEPSEEK_API_KEY"
+backend: live
+agent_root: models/agent/runtime
+api_key: ""
+base_url: "https://api.deepseek.com"
+model: "deepseek-v4-flash"
+thinking_enabled: true
+reasoning_effort: "high"
+temperature: 0
+request_timeout_seconds: 180
+search_local_config_path: models/agent/runtime/config/search_local.yaml
+search_local_leave_one_out: false
+allow_answer_conditioned_example_context: false
+agent_config_overrides:
+  enable_tools: true
+  enable_planner: true
+  enable_goal_guidance: true
+  enable_reflection: true
+  enable_rec_debate: true
+  debate_max_rounds: 2
+  debate_max_retrievals: 2
+  debate_max_tokens: 1800
+  debate_max_retries: 1
+  reflection_max_passes: 1
+  reflection_retry_confidence_threshold: 0.58
+  max_rounds: 8
+  max_tool_turns: 3
+  max_tools_per_turn: 2
+  max_total_tool_calls: 5
+  max_online_tool_calls: 4
+  max_local_tool_calls: 2
+  max_llm_calls: 24
+  max_total_tokens: 120000
+  deadline_seconds: 300
+  max_model_visible_tool_result_chars: 12000
+  planner_max_tokens: 1800
+  screening_max_tokens: 2400
+  screening_max_retries: 1
+  main_max_tokens: 5000
+  reflection_max_tokens: 2400
+  final_max_tokens: 3000
+  retain_tool_pairs_k: -1
+  tool_deepseek_chat_max_workers: 4
+  use_primekg: false
+  enforce_goal_propagation: true
+  enabled_tools:
+    - web_search
+    - web_visit
+    - get_all_info_by_drug
+    - get_drug_patents
+    - get_drug_exlusivities
+    - get_drug_approvals
+    - get_trial_info
+    - search_local
+  disabled_tools: []
